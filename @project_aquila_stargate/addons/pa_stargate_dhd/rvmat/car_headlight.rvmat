@@ -1,0 +1,21 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: sgi_porte_des_etoiles\rvmat\car_headlight.rvmat
+//Produced from mikero's Dos Tools Dll version 7.96
+//https://mikero.bytex.digital/Downloads
+//'now' is Wed Feb 10 22:44:15 2021 : 'file' last modified on Fri Dec 18 20:57:56 2020
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+class StageTI
+{
+	texture = "sgi_porte_des_etoiles\Texture\default_vehicle_ti_ca.paa";
+};
+ambient[] = {1,1,1,1};
+diffuse[] = {1,1,1,1};
+forcedDiffuse[] = {0,0,0,0};
+emmisive[] = {300,300,300,1};
+specular[] = {0,0,0,1};
+specularPower = 1;
+PixelShaderID = "Normal";
+VertexShaderID = "Basic";
