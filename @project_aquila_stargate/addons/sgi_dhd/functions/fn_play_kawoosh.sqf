@@ -6,7 +6,7 @@ private _gate = param [0];
 
 sleep 0.9; // wait for gate to open (900 miliseconds)
 
-if (((typeOf _porte) == "PA_stargate_tauri") and ((_porte animationPhase 'anim_iris1') == 1)) exitWith {}; // exit if the iris of the gate is closed
+if ((((typeOf _gate) == "PA_stargate_tauri") or ((typeOf _gate) == "PA_stargate_goauld_iris")) and ((_gate animationPhase 'anim_iris1') == 1)) exitWith {}; // exit if the iris of the gate is closed
 
 private _particle_gate = "#particlesource" createVehicleLocal (getPosATL _gate); // create particle source at the gate
 

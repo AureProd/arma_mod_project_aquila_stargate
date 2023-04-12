@@ -8,13 +8,11 @@ private _remote_gate = param [1, nil];
 if (isNil "_gate") throw "Undefined local gate in parameters";
 if (isNil "_remote_gate") then {
 	_remote_gate = (_gate getVariable ['remote_gate', nil]); // define remote gate if is not define in parameters
-
-	if (isNil "_remote_gate") throw "Undefined remote gate in parameters and from local gate variable";
 };
 
 // get planets and address logos from the config file 'planets_config'
-private _planets = (getArray (missionConfigFile >> "CfgPlanets" >> "gates"));
-private _address_logos = (getArray (missionConfigFile >> "CfgPlanets" >> "liste_logos"));
+private _planets = (getArray (configFile >> "CfgPlanets" >> "gates"));
+private _address_logos = (getArray (configFile >> "CfgPlanets" >> "liste_logos"));
 
 // find the index of the gate in the planets array
 private _gate_planet_index = _planets findIf {
@@ -25,9 +23,6 @@ private _gate_planet_index = _planets findIf {
 private _remote_gate_planet_index = _planets findIf {
 	(call compile (_x select 2)) == _remote_gate
 };
-
-// exit if the gate or the remote gate is not found
-if ((_gate_planet_index == -1) or (_remote_gate_planet_index == -1)) throw "Undefined local gate or remote gate in parameters";
 
 // get the gate and the remote gate from the planets config array
 private _gate_planet = _planets select _gate_planet_index;
@@ -46,12 +41,12 @@ private _address_logos_list = [];
 
 	// push the address logo to the array with the address logos for the remote gate
 	_address_logos_list pushBack (_address_logos select _address_logo_index);
-} forEach (_remote_gate_planet select 5);
+} forEach (_remote_gate_planet select 4);
 
 if ((count _address_logos_list) != 7) throw "The remote gate address logos is not correct in the config file";
 
 // get the dhd props from the planets config array
-private _dhd = (call compile (_gate_planet select 4));
+private _dhd = (call compile (_gate_planet select 3));
 
 // if the local gate and the remote gate are not open and not in the initialization
 if (!(_gate getVariable ['is_open_gate', false]) and !(_remote_gate getVariable ['is_open_gate', false]) and !(_gate getVariable ['is_in_setup_gate', false]) and !(_remote_gate getVariable ['is_in_setup_gate', false])) then {
@@ -64,12 +59,12 @@ if (!(_gate getVariable ['is_open_gate', false]) and !(_remote_gate getVariable 
 	[_gate, ["open_gate", 50]] remoteExec ["say3D", 0]; // play sound in 3D for all players of server of the openning gate for local gate
 	[_remote_gate, ["open_gate", 50]] remoteExec ["say3D", 0]; // play sound in 3D for all players of server of the openning gate for remote gate
 
-	if ((_gate animationPhase 'anim_iris1') == 0) then { // if iris is open
-		[_gate] remoteExec ["pasg_fnc_play_kawoosh", 0]; // play kawoosh animation for local gate
-		[_gate] remoteExec ["pasg_fnc_create_gate_light", 0]; // create light for local gate
+	if (((((typeOf _gate) == "PA_stargate_tauri") or ((typeOf _gate) == "PA_stargate_goauld_iris")) and ((_gate animationPhase 'anim_iris1') == 0)) or ((typeOf _gate) == "PA_stargate_goauld")) then { // if iris is open
+		[_gate] remoteExec ["pasg_fnc_play_kawoosh", 0]; // play kawoosh animation for remote gate
+		[_gate] remoteExec ["pasg_fnc_create_gate_light", 0]; // create light for remote gate
 	};
 
-	if ((_remote_gate animationPhase 'anim_iris1') == 0) then { // if iris is open
+	if (((((typeOf _remote_gate) == "PA_stargate_tauri") or ((typeOf _remote_gate) == "PA_stargate_goauld_iris")) and ((_remote_gate animationPhase 'anim_iris1') == 0)) or ((typeOf _remote_gate) == "PA_stargate_goauld")) then { // if iris is open
 		[_remote_gate] remoteExec ["pasg_fnc_play_kawoosh", 0]; // play kawoosh animation for remote gate
 		[_remote_gate] remoteExec ["pasg_fnc_create_gate_light", 0]; // create light for remote gate
 	};
@@ -81,25 +76,25 @@ if (!(_gate getVariable ['is_open_gate', false]) and !(_remote_gate getVariable 
 
 	// define variable of remote gate (is_in_setup_gate / remote_gate)
 	_remote_gate setVariable ["is_in_setup_gate", true, true];
-	_remote_gate setVariable ['remote_gate', _remote_gate, true];
+	_remote_gate setVariable ['remote_gate', _gate, true];
 
 	for "_i" from 1 to 17 step 1 do {
 		if ((typeOf _gate) == "PA_stargate_tauri") then { // if the gate object if type of the tauri gate
 			// set texture for all players in the texture layer number 18 for the local
-			[_gate, [18, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+			[_gate, [18, format ["\sgi_dhd\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 		} 
 		else {
 			// set texture for all players in the texture layer number 9 for the local
-			[_gate, [9, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+			[_gate, [9, format ["\sgi_dhd\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 		};
 
 		if ((typeOf _remote_gate) == "PA_stargate_tauri") then { // if the gate object if type of the tauri gate
 			// set texture for all players in the texture layer number 18 for the remote gate
-			[_remote_gate, [18, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+			[_remote_gate, [18, format ["\sgi_dhd\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 		} 
 		else {
 			// set texture for all players in the texture layer number 9 for the remote gate
-			[_remote_gate, [18, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+			[_remote_gate, [9, format ["\sgi_dhd\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 		};
 
 		sleep 0.05; // wait 50 miliseconds
@@ -132,7 +127,9 @@ if (!(_gate getVariable ['is_open_gate', false]) and !(_remote_gate getVariable 
 	_remote_gate setVariable ['is_open_gate', true, true];
 
 	// loop while the gate is open
-	[] spawn {
+	[_gate] spawn {
+		private _gate = _this select 0;
+
 		while { (_gate getVariable ['is_open_gate', false]) } do {
 			if (missionNamespace getVariable ["stop_video_gate_tunnel", true]) then { // don't re-run the video if player is in the gate tunnel
 				// play the video on the gate for the event horizon
@@ -154,7 +151,7 @@ else { // if the local gate or the remote gate are open or in the initialization
 
 		[_gate, ["close_gate", 50]] remoteExec ["say3D", 0]; // sound in 3D for all players of server of the closing gate for local gate 
 
-		if ((_gate animationPhase 'anim_iris1') == 0) then { // if iris is open
+		if ((((typeOf _gate) == "PA_stargate_tauri") or ((typeOf _gate) == "PA_stargate_goauld_iris")) and ((_gate animationPhase 'anim_iris1') == 0)) then { // if iris is open
 			[_gate, false] remoteExec ["pasg_fnc_create_gate_light", 0]; // create light for the local gate
 		};
 
@@ -186,7 +183,7 @@ else { // if the local gate or the remote gate are open or in the initialization
 		private _light = nil;
 		private _remote_light = nil;
 
-		if ((_gate animationPhase 'anim_iris1') == 0) then { // if iris is open
+		if ((((typeOf _gate) == "PA_stargate_tauri") or ((typeOf _gate) == "PA_stargate_goauld_iris")) and ((_gate animationPhase 'anim_iris1') == 0)) then { // if iris is open
 			// create the local light at the local light location
 			_light = "#lightpoint" createVehicleLocal (getPos _gate);  
 			_light setLightBrightness 0.1;  
@@ -196,7 +193,7 @@ else { // if the local gate or the remote gate are open or in the initialization
 			_light lightAttachObject [_gate, _light_location];
 		};
 
-		if ((_remote_gate animationPhase 'anim_iris1') == 0) then { // if iris is open
+		if (((((typeOf _remote_gate) == "PA_stargate_tauri") or ((typeOf _remote_gate) == "PA_stargate_goauld_iris")) and ((_remote_gate animationPhase 'anim_iris1') == 0)) or ((typeOf _remote_gate) == "PA_stargate_goauld")) then { // if iris is open
 			// create the remote light at the remote light location
 			_remote_light = "#lightpoint" createVehicleLocal (getPos _remote_gate);  
 			_remote_light setLightBrightness 0.1;  
@@ -213,20 +210,20 @@ else { // if the local gate or the remote gate are open or in the initialization
 		for "_i" from 17 to 1 step -1 do {
 			if ((typeOf _gate) == "PA_stargate_tauri") then { // if the gate object if type of the tauri gate
 				// set texture for all players in the texture layer number 18 for the local gate
-				[_gate, [18, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+				[_gate, [18, format ["\sgi_dhd\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 			} 
 			else {
 				// set texture for all players in the texture layer number 18 for the local gate
-				[_gate, [9, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+				[_gate, [9, format ["\sgi_dhd\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 			};
 
 			if ((typeOf _remote_gate) == "PA_stargate_tauri") then { // if the gate object if type of the tauri gate
 				// set texture for all players in the texture layer number 18 for the remote gate
-				[_remote_gate, [18, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+				[_remote_gate, [18, format ["\sgi_dhd\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 			} 
 			else {
 				// set texture for all players in the texture layer number 18 for the remote gate
-				[_remote_gate, [9, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+				[_remote_gate, [9, format ["\sgi_dhd\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 			};
 
 			sleep 0.1; // wait 100 milliseconds

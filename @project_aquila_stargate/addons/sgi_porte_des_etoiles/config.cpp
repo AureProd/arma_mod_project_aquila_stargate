@@ -34,26 +34,12 @@ class CfgEditorSubcategories
 	};
 };
 
-class CfgFunctions
-{
-	class stargate_dhd_functions 
-	{
-		tag = "pasgdhd"; // Procject Aquila StarGate DHD
-
-		class stargate_dhd
-        {
-            file = "\pa_stargate\functions";
-            class init_stargate {};
-        };
-	};
-};
-
 class CfgVehicles
 {
 	class House_F;
 	class PA_stargate_goauld_iris: House_F
 	{
-		model = "\pa_stargate\stargate_goauld_iris.p3d";
+		model = "\sgi_porte_des_etoiles\SGI_porte_des_etoiles_iris.p3d";
 		displayName = "PA Stargate Goauld Iris";
 		editorCategory = "PA_stargate_Objects";
 		editorsubcategory = "PA_stargate";
@@ -66,7 +52,7 @@ class CfgVehicles
 		autocenter = 0;
 		class EventHandlers
 		{
-			init = "[_this select 0] execvm '\pa_stargate\functions\fn_init_stargate.sqf'";
+			init = "[_this select 0] execvm '\sgi_porte_des_etoiles\functions\fn_init_stargate.sqf'";
 		};
 		class AnimationSources
 		{
@@ -168,7 +154,7 @@ class CfgVehicles
 
 	class PA_stargate_goauld: House_F
 	{
-		model = "\pa_stargate\stargate_goauld.p3d";
+		model = "\sgi_porte_des_etoiles\SGI_porte_des_etoiles.p3d";
 		displayName = "PA Stargate Goauld";
 		editorCategory = "PA_stargate_Objects";
 		editorsubcategory = "PA_stargate";
@@ -181,7 +167,7 @@ class CfgVehicles
 		autocenter = 0;
 		class EventHandlers
 		{
-			init = "[_this select 0] execvm '\pa_stargate\functions\fn_init_stargate.sqf'";
+			init = "[_this select 0] execvm '\sgi_porte_des_etoiles\functions\fn_init_stargate.sqf'";
 		};
 		class AnimationSources
 		{
@@ -195,7 +181,7 @@ class CfgVehicles
 
 	class PA_stargate_tauri: House_F
 	{
-		model = "\pa_stargate\stagate_tauri.p3d";
+		model = "\sgi_porte_des_etoiles\sga_stargate.p3d";
 		displayName = "PA Stargate Tauri";
 		editorCategory = "PA_stargate_Objects";
 		editorsubcategory = "PA_stargate";
@@ -208,7 +194,7 @@ class CfgVehicles
 		autocenter = 0;
 		class EventHandlers
 		{
-			init = "[_this select 0] execvm '\pa_stargate\functions\fn_init_stargate.sqf'";
+			init = "[_this select 0] execvm '\sgi_porte_des_etoiles\functions\fn_init_stargate.sqf'";
 		};
 		class AnimationSources
 		{

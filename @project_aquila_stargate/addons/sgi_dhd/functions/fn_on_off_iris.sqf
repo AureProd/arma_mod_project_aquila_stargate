@@ -4,6 +4,8 @@
 
 private _gate = param [0];
 
+if (!(((typeOf _gate) == "PA_stargate_tauri") or ((typeOf _gate) == "PA_stargate_goauld_iris"))) exitWith {}; // if the gate is not a stargate tauri or goauld with iris, exit
+
 private _animation = 0; // animation level : 0 = open, 1 = close
 
 if ((_gate animationPhase "anim_iris1") == 0) then { // if iris is open
@@ -21,7 +23,7 @@ for "_i" from 1 to 22 do { // for each animation in all parts of the iris
 
 sleep 1.5; // wait for the animation to finish (1.5 secounds)
 
-if (_gate setVariable ['is_open_gate', true, true]) then {
+if (_gate getVariable ['is_open_gate', false]) then {
 	{ // delete all lightpoint links with the local gate
 		if((typeOf _x) == "#lightpoint") then {
 			deleteVehicle _x;

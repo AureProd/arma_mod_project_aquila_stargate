@@ -47,10 +47,10 @@ private _light = {
 if ((typeOf _gate) == "PA_stargate_tauri") then {
 	[_gate, false] call _light;
 
-	_gate setObjectTexture [20, "\pa_stargate\Texture\stargate_tauri\glyphs.paa"];
-	_gate setObjectTexture [21, "\pa_stargate\Texture\stargate_tauri\innerr.paa"];
+	_gate setObjectTexture [20, "\sgi_porte_des_etoiles\tex\glyphs.paa"];
+	_gate setObjectTexture [21, "\sgi_porte_des_etoiles\tex\innerr.paa"];
 } else {
 	[_gate, false] call _light;
 	
-	_gate setObjectTexture [10, "\pa_stargate\Texture\stargate_goauld\SGI_portedesetoiles_co.paa"];
+	_gate setObjectTexture [10, "\sgi_porte_des_etoiles\Texture\SGI_portedesetoiles_co.paa"];
 };

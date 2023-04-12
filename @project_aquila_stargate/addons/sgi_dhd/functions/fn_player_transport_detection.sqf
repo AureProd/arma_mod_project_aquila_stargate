@@ -15,7 +15,7 @@ while {true} do {
 
 		private _boolean_return = false;
 
-		if ((_gate getVariable ['is_open_gate', false]) and ((_gate animationPhase 'anim_iris1') == 0)) then {
+		if ((_gate getVariable ['is_open_gate', false]) and (((((typeOf _gate) == "PA_stargate_tauri") or ((typeOf _gate) == "PA_stargate_goauld_iris")) and ((_gate animationPhase 'anim_iris1') == 0)) or ((typeOf _gate) == "PA_stargate_goauld"))) then {
 			// calculate the location of the player relative to the gate for determining if the player is in the gate
 			if ((((getDir _gate) > 315) or ((getDir _gate) <= 45)) or (((getDir _gate) > 135) and ((getDir _gate) <= 225))) then { // if the gate is facing north or south
 				if (((getDir _gate) > 315) or ((getDir _gate) <= 45)) then { // if the gate is facing north

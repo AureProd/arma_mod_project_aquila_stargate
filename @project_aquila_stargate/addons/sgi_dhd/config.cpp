@@ -9,6 +9,11 @@ class CfgPatches
 	};
 };
 
+#include "\sgi_dhd\planets.hpp"
+
+#include "\sgi_dhd\functions.hpp"
+#include "\sgi_dhd\sounds.hpp"
+
 class CfgEditorCategories
 {
 	class PA_stargate_Objects
@@ -34,26 +39,12 @@ class CfgEditorSubcategories
 	};
 };
 
-class CfgFunctions
-{
-	class stargate_dhd_functions 
-	{
-		tag = "pasgdhd"; // Procject Aquila StarGate DHD
-
-		class stargate_dhd
-        {
-            file = "\pa_dhd\functions";
-            class init_dhd {};
-        };
-	};
-};
-
 class CfgVehicles
 {
 	class House_F;
 	class PA_dhd: House_F
 	{
-		model = "\pa_dhd\dhd.p3d";
+		model = "\sgi_dhd\dhd.p3d";
 		displayName = "PA DHD";
 		editorCategory = "PA_stargate_Objects";
 		editorsubcategory = "PA_dhd";
@@ -66,7 +57,7 @@ class CfgVehicles
 		autocenter = 0;
 		class EventHandlers
 		{
-			init = "[_this select 0] execVM '\pa_dhd\functions\fn_init_dhd.sqf';";
+			init = "[_this select 0] execVM '\sgi_dhd\functions\fn_init_dhd.sqf';";
 		};
 		class AnimationSources
 		{

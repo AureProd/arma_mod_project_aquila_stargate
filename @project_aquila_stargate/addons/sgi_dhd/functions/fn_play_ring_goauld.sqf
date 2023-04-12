@@ -34,5 +34,3 @@ sleep 0.5; // wait 1/2 second
 if (_light_number != 0) then { // not disable the light if the light is the central chevron because it rest on at the end of the animation
 	[_gate, [0, "#(rgb,8,8,3)color(0,0,0.05,1)"]] remoteExec ["setObjectTexture", 0];
 };
-
-sleep 1; // wait 1 second

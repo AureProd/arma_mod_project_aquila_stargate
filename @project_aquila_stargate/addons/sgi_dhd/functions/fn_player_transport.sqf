@@ -5,16 +5,10 @@
 private _gate = param [0];
 private _player = param [1];
 
-if (_gate getVariable ['is_entry_gate', false]) then { // if player enter in the gate by the bad direction
+if (!(_gate getVariable ['is_entry_gate', false])) then { // if player enter in the gate by the bad direction
 	titleText ["Player is dead", "BLACK OUT"]; // display text if player enter in the gate by the bad direction
 
 	playSound "player_damage"; // play sound of player damage
-
-	[_player, true] remoteExec ["hideObject", 0]; // hide player
-
-	sleep 5; // wait 5 seconds
-
-	[_player, false] remoteExec ["hideObject", 0]; // show player
 
 	_player setDamage 1; // kill player
 
@@ -25,7 +19,7 @@ else { // if player enter in the gate by the good direction
 
 	missionNamespace setVariable ["stop_video_gate_tunnel", false]; // set variable for tunnel video
 
-	["videos\tunnel.ogv", [safeZoneX, safeZoneY, safeZoneW, safeZoneH], [1,1,1,1], "stop_video_gate_tunnel"] spawn BIS_fnc_playVideo; // play tunnel video in player screen
+	["\pa_videos\tunnel.ogv", [safeZoneX, safeZoneY, safeZoneW, safeZoneH], [1,1,1,1], "stop_video_gate_tunnel"] spawn BIS_fnc_playVideo; // play tunnel video in player screen
 
 	sleep 14; // wait time of the video in the gate transport (14 seconds)
 
@@ -46,7 +40,7 @@ else { // if player enter in the gate by the good direction
 
 		missionNamespace setVariable ["stop_video_gate_tunnel", true];
 
-		["videos\horison_events.ogv", [10, 10], [1,1,1,1], "stop_video_gate_event_horizon", [0,0,0,0], false] spawn BIS_fnc_playVideo; // play event horizon video in gate
+		["\pa_videos\horison_events.ogv", [10, 10], [1,1,1,1], "stop_video_gate_event_horizon", [0,0,0,0], false] spawn BIS_fnc_playVideo; // play event horizon video in gate
 
 		sleep 5; // wait 5 seconds
 
@@ -93,7 +87,7 @@ else { // if player enter in the gate by the good direction
 
 		_player setDir _remote_gate_direction; // set player direction
 
-		if ((_remote_gate animationPhase 'anim_iris1') == 1) then { // if iris of remote gate is closed
+		if ((((typeOf _remote_gate) == "PA_stargate_tauri") or ((typeOf _remote_gate) == "PA_stargate_goauld_iris")) and ((_remote_gate animationPhase 'anim_iris1') == 1)) then { // if iris of remote gate is closed
 			titleText ["The stargate iris is closed", "BLACK OUT"]; // display text if remote gate is closed
 
 			_player setVariable ["is_in_gate_transport", false, true];
@@ -108,7 +102,7 @@ else { // if player enter in the gate by the good direction
 
 			missionNamespace setVariable ["stop_video_gate_tunnel", true]; // set variable for tunnel video
 
-			["videos\horison_events.ogv", [10, 10], [1,1,1,1], "stop_video_gate_event_horizon", [0,0,0,0], false] spawn BIS_fnc_playVideo; // play event horizon video in gate
+			["\pa_videos\horison_events.ogv", [10, 10], [1,1,1,1], "stop_video_gate_event_horizon", [0,0,0,0], false] spawn BIS_fnc_playVideo; // play event horizon video in gate
 
 			sleep 5;
 
@@ -121,9 +115,9 @@ else { // if player enter in the gate by the good direction
 
 			missionNamespace setVariable ["stop_video_gate_tunnel", true]; // set variable for tunnel video
 
-			["videos\horison_events.ogv", [10, 10], [1,1,1,1], "stop_video_gate_event_horizon", [0,0,0,0], false] spawn BIS_fnc_playVideo; // play event horizon video in gate
+			["\pa_videos\horison_events.ogv", [10, 10], [1,1,1,1], "stop_video_gate_event_horizon", [0,0,0,0], false] spawn BIS_fnc_playVideo; // play event horizon video in gate
 
-			playSound "player_damage"; // play sound of player damage
+			[_remote_gate, ["player_tp", 50]] remoteExec ["say3D", 0]; // play the sound of the player teleporting in the gate in for all players
 
 			sleep 1; // wait 1 second
 		};

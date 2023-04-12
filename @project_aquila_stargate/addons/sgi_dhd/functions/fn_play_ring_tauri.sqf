@@ -22,7 +22,7 @@ deleteVehicle _sound_object; // delete the sound object
 
 sleep 1; // wait 1 second
 
-[_gate, ["lock_chevron_goauld", 50]] remoteExec ["say3D", 0]; // play the sound of the chevron locking in 3D for all players
+[_gate, ["lock_chevron_tauri", 50]] remoteExec ["say3D", 0]; // play the sound of the chevron locking in 3D for all players
 [_gate, ["lock_chevron", 1]] remoteExec ["animate", 0]; // animate the central chevron to simulate the locking
 [_gate, [1, "#(rgb,8,8,3)color(1,0,0,1)"]] remoteExec ["setObjectTexture", 0]; // set the light texture of the central chevron to red with big intensity 
 
@@ -37,5 +37,3 @@ sleep 0.5; // wait 1/2 second
 if (_light_number != 1) then { // not disable the light if the light is the central chevron because it rest on at the end of the animation
 	[_gate, [1, "#(rgb,8,8,3)color(0.05,0,0,1)"]] remoteExec ["setObjectTexture", 0]; // set the light texture of the central chevron to red with low intensity
 };
-
-sleep 1; // wait 1 second
