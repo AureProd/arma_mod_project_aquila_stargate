@@ -1,10 +1,10 @@
 class CfgPatches
 {
-	class pa_stargate_dhd
+	class pa_stargate
 	{
 		requiredAddons[] = {"A3_Structures_F"};
 		requiredVersion = 1;
-		units[] = {"PA_stargate_goauld_iris", "PA_stargate_goauld", "PA_stargate_tauri", "PA_dhd"};
+		units[] = {"PA_stargate_goauld_iris", "PA_stargate_goauld", "PA_stargate_tauri"};
 		weapons[] = {};
 	};
 };
@@ -42,9 +42,8 @@ class CfgFunctions
 
 		class stargate_dhd
         {
-            file = "\pa_stargate_dhd\functions";
+            file = "\pa_stargate\functions";
             class init_stargate {};
-            class init_dhd {};
         };
 	};
 };
@@ -52,36 +51,9 @@ class CfgFunctions
 class CfgVehicles
 {
 	class House_F;
-	class PA_dhd: House_F
-	{
-		model = "\pa_stargate_dhd\dhd.p3d";
-		displayName = "PA DHD";
-		editorCategory = "PA_stargate_Objects";
-		editorsubcategory = "PA_dhd";
-		scope = 2;
-		icon = "";
-		cost = 9400;
-		armor = 100000;
-		reversed = 1;
-		animated = 1;
-		autocenter = 0;
-		class EventHandlers
-		{
-			init = "[_this select 0] execVM '\pa_stargate_dhd\functions\fn_init_dhd.sqf';";
-		};
-		class AnimationSources
-		{
-			class anim_aquila
-			{
-				animPeriod = 0.25;
-			};
-		};
-		hiddenselections[] = {"Earth","Crater","Virgo","Bootes","Centaurus","Libra","Serpens_Caput","Norma","Scorpio","Cra","Scutum","Sagittarius","Aquila","Mic","Capricorn","Pisces_Austrinus","Equuleus","Aquarius","Pegasus","Sculptor","Pisces","Andromeda","Triangulum","Aries","Perseus","Cetus","Taurus","Auriga","Eridanus","Orion","Canis_Minor","Monoceros","Gemini","Hydra","Lynx","Cancer","Sextans","Leo_Minor","Leo"};
-	};
-
 	class PA_stargate_goauld_iris: House_F
 	{
-		model = "\pa_stargate_dhd\stargate_goauld_iris.p3d";
+		model = "\pa_stargate\stargate_goauld_iris.p3d";
 		displayName = "PA Stargate Goauld Iris";
 		editorCategory = "PA_stargate_Objects";
 		editorsubcategory = "PA_stargate";
@@ -94,7 +66,7 @@ class CfgVehicles
 		autocenter = 0;
 		class EventHandlers
 		{
-			init = "[_this select 0] execvm '\pa_stargate_dhd\functions\fn_init_stargate.sqf'";
+			init = "[_this select 0] execvm '\pa_stargate\functions\fn_init_stargate.sqf'";
 		};
 		class AnimationSources
 		{
@@ -196,7 +168,7 @@ class CfgVehicles
 
 	class PA_stargate_goauld: House_F
 	{
-		model = "\pa_stargate_dhd\stargate_goauld.p3d";
+		model = "\pa_stargate\stargate_goauld.p3d";
 		displayName = "PA Stargate Goauld";
 		editorCategory = "PA_stargate_Objects";
 		editorsubcategory = "PA_stargate";
@@ -209,7 +181,7 @@ class CfgVehicles
 		autocenter = 0;
 		class EventHandlers
 		{
-			init = "[_this select 0] execvm '\pa_stargate_dhd\functions\fn_init_stargate.sqf'";
+			init = "[_this select 0] execvm '\pa_stargate\functions\fn_init_stargate.sqf'";
 		};
 		class AnimationSources
 		{
@@ -223,7 +195,7 @@ class CfgVehicles
 
 	class PA_stargate_tauri: House_F
 	{
-		model = "\pa_stargate_dhd\stagate_tauri.p3d";
+		model = "\pa_stargate\stagate_tauri.p3d";
 		displayName = "PA Stargate Tauri";
 		editorCategory = "PA_stargate_Objects";
 		editorsubcategory = "PA_stargate";
@@ -236,7 +208,7 @@ class CfgVehicles
 		autocenter = 0;
 		class EventHandlers
 		{
-			init = "[_this select 0] execvm '\pa_stargate_dhd\functions\fn_init_stargate.sqf'";
+			init = "[_this select 0] execvm '\pa_stargate\functions\fn_init_stargate.sqf'";
 		};
 		class AnimationSources
 		{

@@ -86,20 +86,20 @@ if (!(_gate getVariable ['is_open_gate', false]) and !(_remote_gate getVariable 
 	for "_i" from 1 to 17 step 1 do {
 		if ((typeOf _gate) == "PA_stargate_tauri") then { // if the gate object if type of the tauri gate
 			// set texture for all players in the texture layer number 18 for the local
-			[_gate, [18, format ["\pa_stargate_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+			[_gate, [18, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 		} 
 		else {
 			// set texture for all players in the texture layer number 9 for the local
-			[_gate, [9, format ["\pa_stargate_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+			[_gate, [9, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 		};
 
 		if ((typeOf _remote_gate) == "PA_stargate_tauri") then { // if the gate object if type of the tauri gate
 			// set texture for all players in the texture layer number 18 for the remote gate
-			[_remote_gate, [18, format ["\pa_stargate_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+			[_remote_gate, [18, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 		} 
 		else {
 			// set texture for all players in the texture layer number 9 for the remote gate
-			[_remote_gate, [18, format ["\pa_stargate_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+			[_remote_gate, [18, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 		};
 
 		sleep 0.05; // wait 50 miliseconds
@@ -213,20 +213,20 @@ else { // if the local gate or the remote gate are open or in the initialization
 		for "_i" from 17 to 1 step -1 do {
 			if ((typeOf _gate) == "PA_stargate_tauri") then { // if the gate object if type of the tauri gate
 				// set texture for all players in the texture layer number 18 for the local gate
-				[_gate, [18, format ["\pa_stargate_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+				[_gate, [18, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 			} 
 			else {
 				// set texture for all players in the texture layer number 18 for the local gate
-				[_gate, [9, format ["\pa_stargate_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+				[_gate, [9, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 			};
 
 			if ((typeOf _remote_gate) == "PA_stargate_tauri") then { // if the gate object if type of the tauri gate
 				// set texture for all players in the texture layer number 18 for the remote gate
-				[_remote_gate, [18, format ["\pa_stargate_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+				[_remote_gate, [18, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 			} 
 			else {
 				// set texture for all players in the texture layer number 18 for the remote gate
-				[_remote_gate, [9, format ["\pa_stargate_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
+				[_remote_gate, [9, format ["\pa_functions\pictures\stargate\init_%1.paa", _i]]] remoteExec ["setObjectTexture", 0];
 			};
 
 			sleep 0.1; // wait 100 milliseconds

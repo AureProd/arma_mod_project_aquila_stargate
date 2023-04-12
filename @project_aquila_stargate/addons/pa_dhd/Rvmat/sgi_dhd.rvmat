@@ -53,7 +53,7 @@ class Stage3
 };
 class Stage4
 {
-	texture = "sgi_dhd\texture\SGI_DHD_as.paa";
+	texture = "sgi_dhd\Texture\SGI_DHD_as.paa";
 	uvSource = "tex1";
 	class uvTransform
 	{
@@ -65,7 +65,7 @@ class Stage4
 };
 class Stage5
 {
-	texture = "sgi_dhd\texture\SGI_DHD_smdi.paa";
+	texture = "sgi_dhd\Texture\SGI_DHD_smdi.paa";
 	uvSource = "tex";
 	class uvTransform
 	{

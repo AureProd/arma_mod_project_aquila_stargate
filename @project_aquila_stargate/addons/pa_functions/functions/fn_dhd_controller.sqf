@@ -55,11 +55,11 @@ sleep 0.5;
 sleep 0.5;
 
 // change the material of the dhd for simulate unpushing the button on the dhd
-[_dhd, [12, "\pa_stargate_dhd\rvmat\sgi_dhd.rvmat"]] remoteExec ["setObjectMaterial", 0];
+[_dhd, [12, "\pa_dhd\Rvmat\sgi_dhd.rvmat"]] remoteExec ["setObjectMaterial", 0];
 
 sleep 0.5;
 
 // change the material of the dhd for simulate unpushing all buttons on the dhd
 for "_i" from 0 to 38 do { // change rvmat of 
-	[_dhd, [_i, "\pa_stargate_dhd\rvmat\sgi_dhd.rvmat"]] remoteExec ["setObjectMaterial", 0];
+	[_dhd, [_i, "\pa_dhd\Rvmat\sgi_dhd.rvmat"]] remoteExec ["setObjectMaterial", 0];
 };

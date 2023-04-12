@@ -1,6 +1,6 @@
 class CfgPatches 
 {
-	class pa_stargate_functions 
+	class pa_functions 
 	{
 		units[] = {};
 		weapons[] = {};
@@ -11,7 +11,7 @@ class CfgPatches
 };
 
 // list of stargates and dhd for each planet
-#include "\pa_stargate_functions\planets.hpp"
+#include "\pa_functions\planets.hpp"
 
-#include "\pa_stargate_functions\functions.hpp"
-#include "\pa_stargate_functions\sounds.hpp"
+#include "\pa_functions\functions.hpp"
+#include "\pa_functions\sounds.hpp"
