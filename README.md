@@ -8,4 +8,4 @@ Mod for Arma 3, This is the functionnal StarGate for the Project Aquila
 
 Edit the file : [planets.hpp](@project_aquila_stargate/addons/sgi_dhd/planets.hpp)
 
-And particulary the "gates" array
+And particulary the `gates` array
