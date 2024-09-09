@@ -1,3 +1,4 @@
+// pasg_fnc_init_dhd
 
 private _dhd = param [0];
 

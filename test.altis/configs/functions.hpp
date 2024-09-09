@@ -6,7 +6,7 @@ class CfgFunctions
 
 		class stargate 
         {
-            file = "\sgi_dhd\functions";
+            file = "functions";
             class create_gate_light {};
             class dhd_controller {};
             class disabled_chevrons_lights {};
@@ -19,6 +19,7 @@ class CfgFunctions
             class ring_controller {};
             class stargate_controller {};
             class add_action {};
+            class init_dhd {};
         };
 	};
 };
