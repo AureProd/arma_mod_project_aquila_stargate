@@ -3,12 +3,12 @@ private _planets = getArray (configFile >> "CfgPlanets" >> "gates");
 
 // Iterate over each planet to retrieve the DHD and execute the function
 {
-	private _dhd_id = (_x select 3)
-    private _dhd = call compile _dhd_id; // Retrieve the DHD ID for the planet
-    
-	hint format ["Setup door '%1'", _dhd_id];
+    private _dhd_id = _x select 3; // Get the DHD ID for the planet
+    private _dhd = compile _dhd_id; // Compile the DHD ID to an object reference
 
-	[_dhd] execVM "pasg_fnc_add_action"; // Execute the function on the DHD
+    hint format ["Setting up door '%1'", _dhd_id]; // Display the setup message
+
+    [_dhd] execVM "pasg_fnc_add_action"; // Execute the function on the DHD
 } forEach _planets;
 
-hint "Started"
+hint "Setup finished"; // Indicate that the setup process has begun
