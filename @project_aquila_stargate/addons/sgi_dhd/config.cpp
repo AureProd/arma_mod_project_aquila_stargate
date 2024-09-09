@@ -9,10 +9,10 @@ class CfgPatches
 	};
 };
 
-#include "\sgi_dhd\planets.hpp"
+// #include "\sgi_dhd\planets.hpp"
 
-#include "\sgi_dhd\functions.hpp"
-#include "\sgi_dhd\sounds.hpp"
+// #include "\sgi_dhd\functions.hpp"
+// #include "\sgi_dhd\sounds.hpp"
 
 class CfgEditorCategories
 {
@@ -55,10 +55,10 @@ class CfgVehicles
 		reversed = 1;
 		animated = 1;
 		autocenter = 0;
-		class EventHandlers
-		{
-			init = "[_this select 0] execVM '\sgi_dhd\functions\fn_init_dhd.sqf';";
-		};
+		// class EventHandlers
+		// {
+		// 	init = "[_this select 0] execVM '\sgi_dhd\functions\fn_init_dhd.sqf';";
+		// };
 		class AnimationSources
 		{
 			class anim_aquila

@@ -1,0 +1,49 @@
+
+#include "configs\planets.hpp"
+
+#include "configs\functions.hpp"
+#include "configs\sounds.hpp"
+
+onLoadName = "Test Stargate";
+overviewTextLocked = "";
+author="Mysterfreez / AureProd";
+dev = "Mysterfreez / AureProd";
+OnLoadMission = "";
+overviewText="";
+loadScreen="";
+onLoadIntro = "";
+respawnOnStart = -1;
+
+// réapparition
+respawn = "INSTANT";
+respawnDelay = 0;
+respawnDialog = false;
+respawnButton = 0;
+
+// ignorer l'écran de sélection de rôle
+skipLobby = 0;
+joinUnassigned = 1;
+briefing = 0;
+
+// désactiver iA
+disabledAI    = 1;
+
+ // desactive les cannaux vocaux
+disableChannels[] = { 0, 2, 3, 4};
+
+// affichage des HUD
+showHUD[] = {1, 1, 1, 1, 1, 0, 0, 1, 1, 1};
+
+class Header
+{
+	gameType = PvP;
+    minPlayers = 1;
+    maxPlayers = 14;
+};
+
+class CfgServer 
+{
+    DebugMode = 1; //Enable many server/hc debugging logs. Default: 0 (1 = Enabled / 0 = Disabled)
+    HeadlessSupport = 0; //Enable/Disable Headless client support. Default: 1 (1 = Enabled / 0 = Disabled)
+};
+
