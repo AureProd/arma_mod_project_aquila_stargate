@@ -9,10 +9,10 @@ class CfgPatches
 	};
 };
 
-#include "configs\planets.hpp"
+#include "\sgi_dhd\configs\planets.hpp"
 
-#include "configs\functions.hpp"
-#include "configs\sounds.hpp"
+#include "\sgi_dhd\configs\functions.hpp"
+#include "\sgi_dhd\configs\sounds.hpp"
 
 class CfgEditorCategories
 {
@@ -57,7 +57,7 @@ class CfgVehicles
 		autocenter = 0;
 		class EventHandlers
 		{
-			init = "[_this select 0] execVM '\sgi_dhd\functions\fn_init_dhd.sqf';";
+			init = "[_this select 0] call pasg_fnc_init_dhd;";
 		};
 		class AnimationSources
 		{

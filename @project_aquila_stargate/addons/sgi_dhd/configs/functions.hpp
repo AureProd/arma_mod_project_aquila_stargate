@@ -6,7 +6,7 @@ class CfgFunctions
 
 		class stargate 
         {
-            file = "functions";
+            file = "\sgi_dhd\functions";
             class create_gate_light {};
             class dhd_controller {};
             class disabled_chevrons_lights {};
