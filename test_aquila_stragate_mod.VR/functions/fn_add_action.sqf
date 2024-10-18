@@ -4,6 +4,8 @@
 
 private _dhd_parametter = param [0];
 
+// diag_log format ["Add add actions for door '%1'", _dhd_parametter];
+
 // params -> [id, text, code, condition, param]
 private _add_actions = 
 {

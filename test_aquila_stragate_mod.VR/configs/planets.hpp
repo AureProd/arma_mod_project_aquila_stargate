@@ -2,7 +2,7 @@ class CfgPlanets
 {
 	gates[] = { // planet id / planet name / stargate object id / dhd object id / list of logos address for the ring of the stargate (5 logos max)
 		{1, "Tau'ry", "porte_tauri", "dhd_tauri", {6, 30, 11, 19, 15, 37, 1}},
-		{82, "Qa'al", "porte_qa_al", "dhd_qa_al", {20, 3, 16, 5, 31, 10, 25}},
+		{82, "Qa'al", "porte_qa_al", "dhd_qa_al", {20, 3, 16, 5, 31, 10, 25}}
 	};
 
 	liste_logos[] = { // logo id / value for SGI stargate / value for SGA stargate / number of dhd logo
