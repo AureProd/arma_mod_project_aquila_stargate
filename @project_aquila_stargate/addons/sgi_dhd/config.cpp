@@ -57,7 +57,7 @@ class CfgVehicles
 		autocenter = 0;
 		class EventHandlers
 		{
-			init = "[_this select 0] call pasg_fnc_init_dhd;";
+			init = "[_this select 0] execVM '\sgi_dhd\functions\fn_init_dhd.sqf';";
 		};
 		class AnimationSources
 		{
