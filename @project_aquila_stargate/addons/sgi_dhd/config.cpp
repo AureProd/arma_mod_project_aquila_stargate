@@ -9,10 +9,10 @@ class CfgPatches
 	};
 };
 
-#include "\sgi_dhd\planets.hpp"
+#include "\sgi_dhd\configs\planets.hpp"
 
-#include "\sgi_dhd\functions.hpp"
-#include "\sgi_dhd\sounds.hpp"
+#include "\sgi_dhd\configs\functions.hpp"
+#include "\sgi_dhd\configs\sounds.hpp"
 
 class CfgEditorCategories
 {

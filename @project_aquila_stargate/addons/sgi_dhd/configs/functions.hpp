@@ -19,6 +19,7 @@ class CfgFunctions
             class ring_controller {};
             class stargate_controller {};
             class add_action {};
+            class init_dhd {};
         };
 	};
 };

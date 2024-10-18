@@ -1,0 +1,19 @@
+{
+	"title": "Project Aquila Stargate",
+	"name": "project_aquila_stargate",
+	"author": "AureProd",
+	"website": "",
+	"version": "1.0.0",
+	"buildPath": "build",
+	"privateKey": "",
+	"serverDirs": [],
+	"serverUse32bit": false,
+	"clientDirs": [
+		"@project_aquila_stargate\\addons\\pa_videos",
+		"@project_aquila_stargate\\addons\\sgi_dhd",
+		"@project_aquila_stargate\\addons\\sgi_porte_des_etoiles"
+	],
+	"steamPath": "C:\\Program Files (x86)\\Steam",
+	"clientMods": [],
+	"ftpConnection": {}
+}
