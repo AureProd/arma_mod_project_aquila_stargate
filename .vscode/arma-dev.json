@@ -5,7 +5,7 @@
 	"website": "",
 	"version": "1.0.0",
 	"buildPath": "build",
-	"privateKey": "",
+	"privateKey": "teammota.biprivatekey",
 	"serverDirs": [],
 	"serverUse32bit": false,
 	"clientDirs": [

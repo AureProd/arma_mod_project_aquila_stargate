@@ -1,5 +1,8 @@
 *.pbo
 *.bak
+*.bikey
+*.bisign
+*.biprivatekey
 
 TODO.md
 
